@@ -11,4 +11,17 @@ const App = Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 
+console.log("js loaded")
+
+let get = document.querySelector.bind(document);
+let canvas = get("#myCanvas");
+let ctx = canvas.getContext('2d');
+
+canvas.width = 500
+canvas.height = 500
+
+ctx.lineWidth = 1
+ctx.strokeStyle = '#00CC99'
+
 export default App;
+
