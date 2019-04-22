@@ -21,11 +21,17 @@ let canvas = get("#myCanvas");
 let ctx = canvas.getContext('2d');
 // create empty array to hold coordinates for drawing
 let drawArr = [];
-// set stroke width and color
-ctx.lineWidth = 1
-ctx.strokeStyle = '#00CC99'
+console.log(ctx.strokeStyle)
+// set height and width of canvas
+canvas.width  = window.innerWidth;
+canvas.height = window.innerHeight
 // function to draw rectangle
 function draw() {
+  // dashed lines
+  ctx.setLineDash([5, 5]);
+  // set stroke width and color
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "#0000FF";
   // clear a rectangle within a given rectangle:
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
   // create object inside drawArr
@@ -48,6 +54,8 @@ let mousedown = false;
 canvas.addEventListener('mousedown', function(e) {
   // when mouse is clicked down, set mousedown to true
   mousedown = true;
+  // set cursor to none
+  document.body.style.cursor = "none";
   // push current (x, y) page coordinates of mouse to drawArr
   drawArr.push({
     x: e.pageX,
@@ -57,9 +65,14 @@ canvas.addEventListener('mousedown', function(e) {
   });
   console.log(drawArr);
 });
-// listen for mouseup click on the canvas and set mousedown back to false
-canvas.addEventListener('mouseup', function(e) {
+// listen for mouseup click on the canvas
+canvas.addEventListener('mouseup', function() {
+  // set mousedown back to false
   mousedown = false;
+  // clear canvas
+  drawArr  = []
+  // set cursor back to default
+  document.body.style.cursor = "default";
 })
 // listen for mouse moving on the canvas
 canvas.addEventListener('mousemove', function(e) {
