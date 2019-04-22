@@ -39,6 +39,14 @@ function draw() {
   //  tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint
   requestAnimationFrame(draw);
 }
+// mouse is not down on default
+let mousedown = false;
+// listen for mousedown click on the canvas
+canvas.addEventListener('mousedown', function(e) {
+  // when mouse is clicked down, set mousedown to true
+  mousedown = true;
+  // push current (x, y) page coordinates of mouse to drawArr
+});
 
 
 export default App;
