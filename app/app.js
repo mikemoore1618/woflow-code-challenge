@@ -55,7 +55,7 @@ canvas.addEventListener('mousedown', function(e) {
   // when mouse is clicked down, set mousedown to true
   mousedown = true;
   // set cursor to none
-  document.body.style.cursor = "none";
+  $('body').css('cursor', "url('https://i.imgur.com/MfSOCAV.png') 50 50, auto");
   // push current (x, y) page coordinates of mouse to drawArr
   drawArr.push({
     x: e.pageX,
@@ -72,7 +72,7 @@ canvas.addEventListener('mouseup', function() {
   // clear canvas
   drawArr  = []
   // set cursor back to default
-  document.body.style.cursor = "default";
+  $('body').css('cursor', 'default');
 })
 // listen for mouse moving on the canvas
 canvas.addEventListener('mousemove', function(e) {
