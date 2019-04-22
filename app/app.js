@@ -25,6 +25,19 @@ let drawArr = [];
 function draw() {
   // clear a rectangle within a given rectangle:
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  // create object inside drawArr
+  for (let obj of drawArr) {
+    let {
+      x,
+      y,
+      w,
+      h
+    } = obj;
+    // draw rectangle starting at point x,y with width = w and height = h
+    ctx.strokeRect(x, y, w, h);
+  }
+  //  tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint
+  requestAnimationFrame(draw);
 }
 
 
