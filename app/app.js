@@ -21,6 +21,9 @@ let canvas = get("#myCanvas");
 let ctx = canvas.getContext('2d');
 // create empty array to hold coordinates for drawing
 let drawArr = [];
+// set stroke width and color
+ctx.lineWidth = 1
+ctx.strokeStyle = '#00CC99'
 // function to draw rectangle
 function draw() {
   // clear a rectangle within a given rectangle:
