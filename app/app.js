@@ -57,7 +57,15 @@ canvas.addEventListener('mousedown', function(e) {
 // listen for mouseup click on the canvas and set mousedown back to false
 canvas.addEventListener('mouseup', function(e) {
   mousedown = false;
-
+})
+// listen for mouse moving on the canvas
+canvas.addEventListener('mousemove', function(e) {
+  //if the mouse is moved while the mouse is clicked down
+  if (mousedown) {
+  
+  }
+});
+//  tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint
+requestAnimationFrame(draw);
 
 export default App;
-
