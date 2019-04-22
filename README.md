@@ -1,6 +1,6 @@
 # Woflow Polygon Drawing Code Challenge
 
-https://mikemoore1618.github.io/woflow-code-challenge
+https://draw-a-polygon.herokuapp.com/
 
 ## Instructions
 

@@ -11,7 +11,9 @@ const App = Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 ///////////////////////////////////////////////////////////
-
+$(document).ready(function(){
+  alert('Click and drag anywhere to draw a polygon!');
+});
 console.log("js loaded")
 
 let get = document.querySelector.bind(document);
