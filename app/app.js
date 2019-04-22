@@ -54,6 +54,9 @@ canvas.addEventListener('mousedown', function(e) {
   });
   console.log(drawArr);
 });
+// listen for mouseup click on the canvas and set mousedown back to false
+canvas.addEventListener('mouseup', function(e) {
+  mousedown = false;
 
 
 export default App;
