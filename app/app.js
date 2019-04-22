@@ -10,8 +10,8 @@ const App = Application.extend({
 });
 
 loadInitializers(App, config.modulePrefix);
-
 ///////////////////////////////////////////////////////////
+
 console.log("js loaded")
 
 let get = document.querySelector.bind(document);
