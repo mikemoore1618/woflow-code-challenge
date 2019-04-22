@@ -46,6 +46,13 @@ canvas.addEventListener('mousedown', function(e) {
   // when mouse is clicked down, set mousedown to true
   mousedown = true;
   // push current (x, y) page coordinates of mouse to drawArr
+  drawArr.push({
+    x: e.pageX,
+    y: e.pageY,
+    w: 0,
+    h: 0
+  });
+  console.log(drawArr);
 });
 
 
