@@ -33,10 +33,10 @@ function draw() {
       w,
       h
     } = obj;
-    // draw rectangle starting at point x,y with width = w and height = h
+    // draw rectangle starting at point {x, y} with width = w and height = h
     ctx.strokeRect(x, y, w, h);
   }
-  //  tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint
+  // tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint
   requestAnimationFrame(draw);
 }
 // mouse is not down on default
@@ -62,10 +62,19 @@ canvas.addEventListener('mouseup', function(e) {
 canvas.addEventListener('mousemove', function(e) {
   //if the mouse is moved while the mouse is clicked down
   if (mousedown) {
-  
+    // set i equal to length of drawArr -1
+    let i = drawArr.length -1;
+    // set index position of drawArr equal to {x, y}
+    let {
+      x,
+      y
+    } = drawArr[i];
+    // set width of rectangle to current coordinates of mouse minus the coordinates of mouse when first clicked
+    drawArr[i].w = e.pageX - x;
+    drawArr[i].h = e.pageY - y;
   }
 });
-//  tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint
+// tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint
 requestAnimationFrame(draw);
 
 export default App;
