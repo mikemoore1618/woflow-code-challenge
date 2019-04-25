@@ -14,7 +14,6 @@ loadInitializers(App, config.modulePrefix);
 $(document).ready(function(){
   alert('Click and drag anywhere to draw a polygon!');
 });
-console.log("js loaded")
 
 let get = document.querySelector.bind(document);
 // grab 'myCanvas' canvas element from index using jQuery
@@ -23,7 +22,6 @@ let canvas = get("#myCanvas");
 let ctx = canvas.getContext('2d');
 // create empty array to hold coordinates for drawing
 let drawArr = [];
-console.log(ctx.strokeStyle)
 // set height and width of canvas
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight
@@ -56,16 +54,15 @@ let mousedown = false;
 canvas.addEventListener('mousedown', function(e) {
   // when mouse is clicked down, set mousedown to true
   mousedown = true;
-  // set cursor to none
-  document.body.style.cursor = "url('https://i.imgur.com/MfSOCAV.png') 50 50, auto"
+  // set cursor to circle
+  document.body.style.cursor = "url('https://i.imgur.com/MfSOCAV.png') 7 7, auto"
   // push current (x, y) page coordinates of mouse to drawArr
   drawArr.push({
-    x: e.pageX,
-    y: e.pageY,
+    x: e.pageX - 7,
+    y: e.pageY - 7,
     w: 0,
     h: 0
   });
-  console.log(drawArr);
 });
 // listen for mouseup click on the canvas
 canvas.addEventListener('mouseup', function() {
@@ -81,12 +78,13 @@ canvas.addEventListener('mousemove', function(e) {
   //if the mouse is moved while the mouse is clicked down
   if (mousedown) {
     // set i equal to length of drawArr -1
-    let i = drawArr.length -1;
+    let i = drawArr.length - 1;
     // set index position of drawArr equal to {x, y}
     let {
       x,
       y
     } = drawArr[i];
+    
     // set width of rectangle to current coordinates of mouse minus the coordinates of mouse when first clicked
     drawArr[i].w = e.pageX - x;
     drawArr[i].h = e.pageY - y;
